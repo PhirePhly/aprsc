@@ -79,10 +79,12 @@ my @pkts = (
 	"SRC2>DST,DIGI,TCPXX*,qAR,$login:>Packet from unverified login according to TCPXX* in path",
 	"SRC->DST,DIGI-0,qAR,$login:>should drop, too short SSID in srccall",
 # javap4 drops these, javap3 allows, should consider dropping in aprsc too
-#	"SRC-111>DST,DIGI,qAR,$login:>should drop, too long SSID in srccall",
-#	"E1E-DH5FF>DST,DIGI,qAR,$login:>should drop, much too long SSID in srccall",
-#	"EL>DST,DIGI,qAR,$login:>should drop, too short callsign",
-#	"EL-1>DST,DIGI,qAR,$login:>should drop, too short callsign before SSID",
+	"SRC-111>DST,DIGI,qAR,$login:>should drop, too long SSID in srccall",
+	"E1E-DH5FF>DST,DIGI,qAR,$login:>should drop, much too long SSID in srccall",
+	"EL>DST,DIGI,qAR,$login:>should drop, too short callsign",
+	"EL-1>DST,DIGI,qAR,$login:>should drop, too short callsign before SSID",
+	"SRC>DS,DIGI,qAR,$login:>should drop, too short dest callsign",
+	"SRC>DS-1,DIGI,qAR,$login:>should drop, too short dest callsign before SSID",
 # javap3/javap4/aprsc all allow really long srccalls, surprisingly
 #	"OH5FFLONG>DST,DIGI,qAR,$login:>should drop, too long srccall",
 	# static built-in disallowed source callsigns
