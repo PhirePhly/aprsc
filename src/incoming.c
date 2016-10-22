@@ -496,7 +496,7 @@ int check_invalid_src_dst(const char *call, int len)
 {
 	//hlog(LOG_DEBUG, "check_invalid_src_dst: '%.*s'", len, call);
 	
-	if (len < 1 || len > CALLSIGNLEN_MAX)
+	if (len < CALLSIGNLEN_MIN || len > CALLSIGNLEN_MAX)
 		return -1;
 	
 	int i = 0;
@@ -513,15 +513,17 @@ int check_invalid_src_dst(const char *call, int len)
 	/* we're at end? */
 	if (i == len)
 		return 0;
+
+	/* Is the base callsign too short before the SSID? */
+	if (i < CALLSIGNLEN_MIN)
+		return -1;
 	
 	/* We have an SSID. */
-	i++;
+	i++; // Skip the '-' found in the while loop
 	
 	/* Check SSID length to be between 1 and 2 */
-	/* javap4 drops these, javap3 allows, consider to drop later
 	if (len - i > 2 || len == i)
 		return -1;
-	*/
 	/* Check SSID length to be at least 1 */
 	if (len == i)
 		return -1;
