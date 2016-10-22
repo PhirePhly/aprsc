@@ -85,17 +85,17 @@ my @pkts = (
 #	"EL-1>DST,DIGI,qAR,$login:>should drop, too short callsign before SSID",
 # javap3/javap4/aprsc all allow really long srccalls, surprisingly
 #	"OH5FFLONG>DST,DIGI,qAR,$login:>should drop, too long srccall",
-	# disallowed source callsigns
+	# static built-in disallowed source callsigns
 	"N0CALL>DST,DIGI,qAR,$login:>should drop, N0CALL as source callsign",
 	"NOCALL>DST,DIGI,qAR,$login:>should drop, NOCALL as source callsign",
 	"NOCALL-1>DST,DIGI,qAR,$login:>should drop, N0CALL-1 as source callsign",
 	"SERVER>DST,DIGI,qAR,$login:>should drop, SERVER as source callsign",
 	# additionally configured disallowed source callsigns: N7CALL N8CALL
-	"N7CALL>DST,DIGI,qAR,$login:>should drop, N7CALL as source callsign matches N7CALL",
-	"N8CALL>DST,DIGI,qAR,$login:>should drop, N8CALL as source callsign matches N8CALL*",
-	"GLDROP>DST,DIGI,qAR,$login:>should drop, GLDROP as source callsign matches *DROP",
-	"DRGLOB>DST,DIGI,qAR,$login:>should drop, DRGLOB as source callsign matches DRG*",
-	"OH7DRU>DST,DIGI,qAR,$login:>should drop, OH7DRU as source callsign matches OH?DRUP",
+	"N7CALL>DST,DIGI,qAR,$login:>should drop, matches DisallowSourcecall N7CALL",
+	"N8CALL>DST,DIGI,qAR,$login:>should drop, matches DisallowSourcecall N8CALL*",
+	"GLDROP>DST,DIGI,qAR,$login:>should drop, matches DisallowSourcecall *DROP",
+	"DRGLOB>DST,DIGI,qAR,$login:>should drop, matches DisallowSourcecall DRG*",
+	"OH7DRU>DST,DIGI,qAR,$login:>should drop, matches DisallowSourcecall OH?DRUP",
 	# DX spots
 	"SRC>DST,DIGI,qAR,$login:DX de FOO: BAR - should drop",
 	# Disallowed message recipients, status messages and such
