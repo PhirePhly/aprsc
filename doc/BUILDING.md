@@ -111,6 +111,17 @@ An example configuration file has been installed as
 /opt/aprsc/etc/aprsc.conf. An existing configuration file will not be
 overwritten by a subsequent install.
 
+It is also possible to compile aprsc as a deb package file, and install it
+using dpkg:
+
+Compile into a deb:
+
+    $ make make-deb
+
+Install it from the deb:
+
+    $ sudo dpkg -i ../aprsc_...deb (exact file name depending on the version)
+
 
 A note on the chroot
 -----------------------
